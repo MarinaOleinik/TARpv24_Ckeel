@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,29 +12,83 @@ namespace TARpv24_Ckeel
         public static void Main(string[] args)
         {
             Random rnd = new Random();
-            //2. Osa Valikud
-            int kuu_number=rnd.Next(1,12);
-            string nimetus = Osa1_funktsioonid.Kuu_nimetus(kuu_number);
-            Console.WriteLine( $"Nr: {kuu_number}-{nimetus}");
-            Console.WriteLine("Kas tahad dekodeerida arv->nimetusse?");
-            string vastus=Console.ReadLine();
-            if (vastus.ToLower() != "jah")
+            Console.OutputEncoding = Encoding.UTF8;
+            // Ülesanne 2
+            double[] arvud = Osa3_funktsioonid.Tekstist_arvud();
+            var tulemus= Osa3_funktsioonid.AnalüüsiArve(arvud);
+            Console.WriteLine($"Summa: {tulemus.Item1:F2}, Keskmine: {tulemus.Item2:F2}, Korrutis: {tulemus.Item3:F2}");
+
+
+
+
+            // 3. Osa Massiivid, List, Kordused
+            //List<string> nimed = new List<string>();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine($"{i + 1}. Nimi: ");
+            //    nimed.Add(Console.ReadLine());
+            //}
+            //foreach (string nimi in nimed)
+            //{
+            //    Console.WriteLine(nimi);
+            //}
+            //int[] arvud = new int[10];
+            int j = 0;
+            //while (j<10)
+            //{
+            //    Console.WriteLine(j + 1);
+            //    arvud[j] = rnd.Next(1, 101);
+            //    j++;
+            //}
+            //foreach (int arv in arvud)
+            //{
+            //    Console.WriteLine(arv);
+            //}
+
+            List<Isik> isikud = new List<Isik>();
+            j = 0;
+            do
             {
-                Console.WriteLine("Ei taha, siis ei taha");
-            }
-            else
+                Console.WriteLine(j + 1);
+                Isik isik = new Isik();
+                Console.Write("Eesnimi: ");
+                isik.eesnimi = Console.ReadLine();
+                isikud.Add(isik);
+                j++;
+            } while (j < 10);
+            isikud.Sort((x, y) => x.eesnimi.CompareTo(y.eesnimi));
+            Console.WriteLine($"Kokku on {isikud.Count()} isikud");
+            foreach (Isik isik in isikud)
             {
-                try
-                {
-                    Console.Write("Nr: ");
-                    kuu_number=int.Parse(Console.ReadLine());
-                    Console.WriteLine(Osa1_funktsioonid.Hooaeg(kuu_number));
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }  
+                isik.Prindi_andmed();  
             }
+            Console.WriteLine($"Kolmandal kohal on {isikud[2].eesnimi} isik");
+
+
+
+            ////2. Osa Valikud
+            //int kuu_number=rnd.Next(1,12);
+            //string nimetus = Osa1_funktsioonid.Kuu_nimetus(kuu_number);
+            //Console.WriteLine( $"Nr: {kuu_number}-{nimetus}");
+            //Console.WriteLine("Kas tahad dekodeerida arv->nimetusse?");
+            //string vastus=Console.ReadLine();
+            //if (vastus.ToLower() != "jah")
+            //{
+            //    Console.WriteLine("Ei taha, siis ei taha");
+            //}
+            //else
+            //{
+            //    try
+            //    {
+            //        Console.Write("Nr: ");
+            //        kuu_number=int.Parse(Console.ReadLine());
+            //        Console.WriteLine(Osa1_funktsioonid.Hooaeg(kuu_number));
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Console.WriteLine(e);
+            //    }  
+            //}
 
 
             ////I. Osa Andmetüübid, Alamfunktsioon
