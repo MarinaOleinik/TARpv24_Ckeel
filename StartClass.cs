@@ -13,6 +13,13 @@ namespace TARpv24_Ckeel
         {
             Random rnd = new Random();
             Console.OutputEncoding = Encoding.UTF8;
+            // 4.Osa Failid  
+
+            Osa4_funktsioonid.Kirjuta_failisse();
+            Console.WriteLine("Faili nimi: ");
+            string failinimi = Console.ReadLine();
+            Osa4_funktsioonid.Failide_lugemine(failinimi);
+
             // Ülesanne 2
             double[] arvud = Osa3_funktsioonid.Tekstist_arvud();
             var tulemus= Osa3_funktsioonid.AnalüüsiArve(arvud);
