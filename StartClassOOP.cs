@@ -12,7 +12,7 @@ namespace TARpv24_Ckeel
         {
             //Inimene inimene1 = new Inimene();
 
-            Õpilane inimene1 = new Õpilane();
+            Inimene inimene1 = new Õpilane();
             inimene1.Nimi = "Juku";
             inimene1.Vanus = 12;
             inimene1.Tervita();

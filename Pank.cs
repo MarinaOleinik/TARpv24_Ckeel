@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace TARpv24_Ckeel
 {
-    public interface ITööline
-    {
-        double ArvutaPalk();    
-    }
+    
     public class Pank
     {
         private double saldo;
