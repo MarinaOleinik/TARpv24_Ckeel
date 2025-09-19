@@ -26,12 +26,26 @@ namespace TARpv24_Ckeel
             töötaja1.Ametikoht = "Autojuht";
             töötaja1.Tervita();
             töötaja1.Töötan();
+            töötaja1.Mida_teeb();
+
+            töötaja1.Tunnid = 160;
+            double palk = töötaja1.ArvutaPalk();
+            Console.WriteLine($"Töötaja {töötaja1.Nimi} teenib kuus {palk} eurot.");
+            Console.WriteLine($"Algne konto on {töötaja1.Konto.Saldo} eurot.");
+            töötaja1.Konto.Saldo += palk;
+            Console.WriteLine($"Pärast palka on kontol {töötaja1.Konto.Saldo} eurot.");
+            töötaja1.Konto.VõtaRaha(200);
+            Console.WriteLine($"Pärast sularaha võtmist on kontol {töötaja1.Konto.Saldo} eurot.");
+            töötaja1.Konto.LisaRaha(500);
+            Console.WriteLine($"Pärast raha lisamist on kontol {töötaja1.Konto.Saldo} eurot.");
+
+
             //1 ülesanne
             //3- Tee ise vähemalt 2 alamklassi ja kasuta neid siin
             //4.5- Tee enda põhiklass ja 2 alamklassi ning kasuta neid siin
             //2 ülesanne
             /*- Tee enda põhiklass(Loom) ja 2-3 alamklassi(Kass, Koer, Lehm)
-            ning kasuta abstraktset meetodit*/
+            ning kasuta 2-3 abstraktset meetodit*/
         }
 
     }

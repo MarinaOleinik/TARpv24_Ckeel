@@ -10,15 +10,16 @@ namespace TARpv24_Ckeel
     {
         public string Nimi;
         public int Vanus;
+        public Pank Konto { get; set; }
         public Inimene()
         {
-            //Nimi = "Mati";
-            //Vanus = 99;
+            Konto = new Pank();
         }
         public Inimene(string nimi, int vanus)
         {
             Nimi = nimi;
             Vanus = vanus;
+            Konto = new Pank();
         }
         public void Tervita()
         {
